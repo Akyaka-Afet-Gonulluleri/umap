@@ -28,7 +28,7 @@ SECRET_KEY = env('SECRET_KEY',default='test')
 INTERNAL_IPS = ('127.0.0.1', )
 ALLOWED_HOSTS = ['*', ]
 
-DEBUG = True
+DEBUG = False
 
 ADMINS = (
     (env('ADMIN_NAME',default='test'), env('ADMIN_EMAIL',default='test')),
@@ -114,10 +114,10 @@ UMAP_READONLY = env('UMAP_READONLY')
 
 
 # For static deployment
-STATIC_ROOT = '/app/static'
+STATIC_ROOT = env('STATIC_ROOT')
 
 # For users' statics (geojson mainly)
-MEDIA_ROOT = '/app/data'
+MEDIA_ROOT = env('MEDIA_ROOT')
 
 # Default map location for new maps (akyaka)
 LEAFLET_LONGITUDE = 28.3323

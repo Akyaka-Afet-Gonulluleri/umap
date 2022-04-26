@@ -20,3 +20,10 @@ services:
   app:
     build: .
     env_file: .env
+    ports:
+      - 8000:8000
+    environment:
+      UMAP_SETTINGS: /app/umap/settings/docker.py
+      DATABASE_URL: postgis://postgres:example@db/postgres
+      STATIC_ROOT: /app/static
+      MEDIA_ROOT: /app/data

@@ -1,3 +1,3 @@
 #!/bin/bash
 umap migrate
-gunicorn umap.wsgi
+umap runserver 0.0.0.0:8000 --insecure

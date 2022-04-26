@@ -9,9 +9,9 @@ django-agnocomplete==1.0.0
 django-appconf==1.0.5
 django-compressor==2.4
 django-environ==0.8.1
+django-jsonfield==1.4.1
 gunicorn==20.1.0
 idna==2.10
-jsonfield==3.1.0
 oauthlib==3.2.0
 Pillow==8.0.1
 psycopg2==2.8.4
