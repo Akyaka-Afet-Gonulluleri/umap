@@ -51,3 +51,7 @@ tx_push:
 	tx push -s
 tx_pull:
 	tx pull
+
+docker-compose-up:
+	pack build -B heroku/buildpacks:20 umap
+	docker-compose up -d

@@ -24,19 +24,19 @@ env = environ.Env(
 )
 environ.Env.read_env()
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY',default='test')
 INTERNAL_IPS = ('127.0.0.1', )
 ALLOWED_HOSTS = ['*', ]
 
 DEBUG = True
 
 ADMINS = (
-    (env('ADMIN_NAME'), env('ADMIN_EMAIL')),
+    (env('ADMIN_NAME',default='test'), env('ADMIN_EMAIL',default='test')),
 )
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgis://postgres:example@localhost/postgres')
+    'default': dj_database_url.config(conn_max_age=600, default='postgis://postgres:example@localhost/postgres')
 }
 
 COMPRESS_ENABLED = True
@@ -91,8 +91,8 @@ UMAP_MAPS_PER_PAGE = 5
 # How many maps should be showcased on the user page, if owner
 UMAP_MAPS_PER_PAGE_OWNER = 10
 
-SITE_URL = "http://localhost:8019"
-SHORT_SITE_URL = "http://s.hort"
+SITE_URL = env("SITE_URL",default="http://localhost:8019")
+SHORT_SITE_URL = env("SHORT_SITE_URL",default="http://s.hort")
 
 # CACHES = {
 #     'default': {
@@ -114,10 +114,10 @@ UMAP_READONLY = env('UMAP_READONLY')
 
 
 # For static deployment
-STATIC_ROOT = '/workspace/umap/static'
+STATIC_ROOT = '/app/static'
 
 # For users' statics (geojson mainly)
-MEDIA_ROOT = '/workspace/umap/data'
+MEDIA_ROOT = '/app/data'
 
 # Default map location for new maps (akyaka)
 LEAFLET_LONGITUDE = 28.3323
